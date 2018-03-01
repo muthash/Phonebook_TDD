@@ -48,7 +48,7 @@ class PhonebookTestCase(unittest.TestCase):
         new_contact = ("", "") in book.phonebook.items()
         self.assertFalse(new_contact)
         self.assertEqual(result, "contact cannot be blank")
-
-
+ 
+    
 if __name__ == '__main__':
     unittest.main()
