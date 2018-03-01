@@ -40,11 +40,13 @@ class PhonebookTestCase(unittest.TestCase):
 
     def test_view(self):
         res = book.get_all()
-        self.assertEqual(res, "contacts retrieved successfully")
+        self.assertEqual(res, book.phonebook.items())
 
     def test_add_blank_input(self):
         """Test user can add a new contact"""
         result = book.add("", "")
+        new_contact = ("", "") in book.phonebook.items()
+        self.assertFalse(new_contact)
         self.assertEqual(result, "contact cannot be blank")
 
 
