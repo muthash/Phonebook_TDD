@@ -36,7 +36,7 @@ class PhonebookTestCase(unittest.TestCase):
 
     def test_add_blank_input(self):
         """Test user can add a new contact"""
-        result = book.add(" ", " ")
+        result = book.add("", "")
         self.assertEqual(result, "contact cannot be blank")
 
 
