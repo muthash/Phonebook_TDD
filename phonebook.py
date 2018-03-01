@@ -2,12 +2,13 @@ class Phonebook():
     def __init__(self):
         self.name = None
         self.number = None
-        self.new_name = None
         self.phonebook = {}
 
     def add(self, name, number):
         self.name = name
         self.number = number
+        if not self.name or not self.number:
+            return "contact cannot be blank"
         self.phonebook[self.name] = self.number
         if self.phonebook[self.name] == number:
             return "contact added successfully"
