@@ -8,3 +8,6 @@ class Phonebook():
         self.name = name
         self.number = number
         self.phonebook[self.name] = self.number
+        if self.phonebook[self.name] == number:
+            return "contact added successfully"
+        return 0    
