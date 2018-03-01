@@ -36,3 +36,16 @@ class Phonebook():
             if not  old_contact:
                 self.phonebook[self.name] = self.number
                 return "contact updated successfully"
+
+    def get_all(self):
+        phonebook = self.phonebook.items()
+        names = self.phonebook.keys()
+        for name in names:
+            retrieved = self.contains(name, phonebook)
+            if retrieved:
+                return "contacts retrieved successfully"
+            return "contacts not retrieved"
+
+    @staticmethod
+    def contains(key, tple):
+        return any(key == e[0] for e in tple)
