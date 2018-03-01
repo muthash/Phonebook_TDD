@@ -19,6 +19,8 @@ class PhonebookTestCase(unittest.TestCase):
 
     def test_delete(self):
         result = book.delete(self.name)
+        deleted_contact = (self.name, self.number) in book.phonebook.items()
+        self.assertFalse(deleted_contact)
         self.assertEqual(result, "contact deleted successfully")
 
     def test_update(self):
