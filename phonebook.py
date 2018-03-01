@@ -2,6 +2,7 @@ class Phonebook():
     def __init__(self):
         self.name = None
         self.number = None
+        self.new_name = None
         self.phonebook = {}
 
     def add(self, name, number):
@@ -22,3 +23,16 @@ class Phonebook():
                 return "contact deleted successfully"
             return "contact not deleted"
         return 0
+    
+    def update(self, old_name, new_name, old_number, new_number):
+        self.name = new_name
+        self.number =  new_number
+        self.old_name = old_name
+        self.old_number =  old_number
+        if  self.name != self.old_number:
+            self.phonebook[self.name] = self.phonebook[self.old_name]
+            del self.phonebook[self.old_name]
+            old_contact = self.old_name in self.phonebook.keys()
+            if not  old_contact:
+                self.phonebook[self.name] = self.number
+                return "contact updated successfully"
