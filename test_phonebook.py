@@ -13,6 +13,8 @@ class PhonebookTestCase(unittest.TestCase):
     def test_add(self):
         """Test user can add a new contact"""
         result = book.add(self.name, self.number)
+        new_contact = (self.name, self.number) in book.phonebook.items()
+        self.assertTrue(new_contact)
         self.assertEqual(result, "contact added successfully")
 
     def test_delete(self):
