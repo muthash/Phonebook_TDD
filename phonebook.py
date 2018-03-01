@@ -30,11 +30,12 @@ class Phonebook():
         self.number =  new_number
         self.old_name = old_name
         self.old_number =  old_number
-        if  self.name != self.old_number:
+        if  self.name != self.old_name:
             self.phonebook[self.name] = self.phonebook[self.old_name]
             del self.phonebook[self.old_name]
             old_contact = self.old_name in self.phonebook.keys()
-            if not  old_contact:
+            new_contact = self.name in self.phonebook.keys()
+            if new_contact and not  old_contact:
                 self.phonebook[self.name] = self.number
                 return "contact updated successfully"
 
