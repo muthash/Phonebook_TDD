@@ -20,9 +20,14 @@ class PhonebookTestCase(unittest.TestCase):
         self.assertEqual(result, "contact deleted successfully")
 
     def test_update(self):
-        self.update_name = "Steve Handsome"
-        self.update_number = "0723876543"
-        result = book.update(self.update_name, self.update_number)
+        self.old_name = "Jane"
+        self.old_number = "0722222222"
+        self.new_name = "Mary"
+        self.new_number = "0723876543"
+        res = book.add(self.old_name, self.old_number)
+        self.assertEqual(res, "contact added successfully")
+
+        result = book.update(self.old_name, self.new_name, self.old_number, self.new_number)
         self.assertEqual(result, "contact updated successfully")
 
 if __name__ == '__main__':
