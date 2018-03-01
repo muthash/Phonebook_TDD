@@ -30,5 +30,10 @@ class PhonebookTestCase(unittest.TestCase):
         result = book.update(self.old_name, self.new_name, self.old_number, self.new_number)
         self.assertEqual(result, "contact updated successfully")
 
+    def test_view(self):
+        res = book.get_all()
+        self.assertEqual(res, "contacts retrieved successfully")
+
+
 if __name__ == '__main__':
     unittest.main()
