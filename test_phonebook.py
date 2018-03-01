@@ -32,6 +32,10 @@ class PhonebookTestCase(unittest.TestCase):
         self.assertEqual(res, "contact added successfully")
 
         result = book.update(self.old_name, self.new_name, self.old_number, self.new_number)
+        old_contact = (self.old_name, self.old_number) in book.phonebook.items()
+        self.assertFalse(old_contact)
+        new_contact = (self.new_name, self.new_number) in book.phonebook.items()
+        self.assertTrue(new_contact)
         self.assertEqual(result, "contact updated successfully")
 
     def test_view(self):
